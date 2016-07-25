@@ -4,10 +4,6 @@ package com.hmkcode.android.sqliteapp;
  * Created by josec on July 24, 2016
  * for SQLite App.
  */
-import java.util.LinkedList;
-import java.util.List;
-
-import com.hmkcode.android.model.Book;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -16,12 +12,29 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.LinkedList;
+import java.util.List;
+
+//import com.hmkcode.android.sqliteapp.Book;
+
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "BookDB";
+    /**
+     * CRUD operations (create "add", read "get", update, delete) book + get all books + delete all books
+     */
+
+    // Books table name
+    private static final String TABLE_BOOKS = "books";
+    // Books Table Columns names
+    private static final String KEY_ID = "id";
+    private static final String KEY_TITLE = "title";
+    //---------------------------------------------------------------------
+    private static final String KEY_AUTHOR = "author";
+    private static final String[] COLUMNS = {KEY_ID, KEY_TITLE, KEY_AUTHOR};
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,7 +45,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // SQL statement to create book table
         String CREATE_BOOK_TABLE = "CREATE TABLE books ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "title TEXT, "+
+                "title TEXT, " +
                 "author TEXT )";
 
         // create books table
@@ -47,21 +60,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         // create fresh books table
         this.onCreate(db);
     }
-    //---------------------------------------------------------------------
-
-    /**
-     * CRUD operations (create "add", read "get", update, delete) book + get all books + delete all books
-     */
-
-    // Books table name
-    private static final String TABLE_BOOKS = "books";
-
-    // Books Table Columns names
-    private static final String KEY_ID = "id";
-    private static final String KEY_TITLE = "title";
-    private static final String KEY_AUTHOR = "author";
-
-    private static final String[] COLUMNS = {KEY_ID,KEY_TITLE,KEY_AUTHOR};
 
     public void addBook(Book book){
         Log.d("addBook", book.toString());
