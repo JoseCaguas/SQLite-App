@@ -1,13 +1,11 @@
 package com.hmkcode.android.sqliteapp;
 
-import android.support.v7.app.AppCompatActivity;
-import java.util.List;
-import com.hmkcode.android.sqliteapp.Book;
-import com.hmkcode.android.sqliteapp.MySQLiteHelper;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends Activity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

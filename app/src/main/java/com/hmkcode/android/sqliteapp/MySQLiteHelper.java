@@ -15,8 +15,6 @@ import android.util.Log;
 import java.util.LinkedList;
 import java.util.List;
 
-//import com.hmkcode.android.sqliteapp.Book;
-
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
     // Database Version
